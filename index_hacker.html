@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohamed Amara | Junior Penetration Tester</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;600;700&family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Interactive Background -->
+    <canvas id="network-canvas"></canvas>
+    <div class="bg-grid"></div>
+    <div class="noise-overlay"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            <span class="cmd-prompt">&gt;</span> r<span class="at">3</span>venMoe<span class="blink">_</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#about"><span class="nav-num">01.</span> Whoami</a></li>
+            <li><a href="#experience"><span class="nav-num">02.</span> Experience</a></li>
+            <li><a href="#arsenal"><span class="nav-num">03.</span> Arsenal</a></li>
+            <li><a href="#ctf"><span class="nav-num">04.</span> CTFs</a></li>
+            <li><a href="#certifications"><span class="nav-num">05.</span> Certs</a></li>
+            <li><a href="#projects"><span class="nav-num">06.</span> Projects</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <p class="sys-msg">[ SYSTEM READY ] Connection established...</p>
+            <h1 class="hero-title glitch" data-text="Mohamed Amara">Mohamed Amara</h1>
+            <div class="typewriter-container">
+                <span id="typewriter-text"></span><span class="cursor">|</span>
+            </div>
+            <p class="hero-description">
+                A 20-year-old interdisciplinary tech mind. From studying Nanoscience & Materials Science, to taking down challenges in cyberspace, securing 1st place in CTFs, and leading global teams.
+            </p>
+            <div class="hero-actions">
+                <a href="#experience" class="cyber-btn primary">
+                    View Operational History <i class="fa-solid fa-clock-rotate-left"></i>
+                </a>
+                <a href="#contact" class="cyber-btn secondary">
+                    Ping Me
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section (Terminal Style) -->
+    <section class="section" id="about">
+        <h2 class="section-heading"><span class="heading-num">01.</span> Whoami</h2>
+        <div class="about-content">
+            <div class="terminal-window glass-panel">
+                <div class="terminal-header">
+                    <div class="term-btns">
+                        <span class="t-btn close"></span>
+                        <span class="t-btn min"></span>
+                        <span class="t-btn max"></span>
+                    </div>
+                    <div class="term-title">bash - r<span class="at">3</span>venMoe@kali:~</div>
+                </div>
+                <div class="terminal-body">
+                    <div class="term-line">
+                        <span class="prompt">r<span class="at">3</span>venMoe@kali:~$</span> <span class="cmd">cat profile.json</span>
+                    </div>
+                    <div class="term-output">
+                        {<br>
+                        &nbsp;&nbsp;"name": "Mohamed Abdelmaksoud Mohamed Amara",<br>
+                        &nbsp;&nbsp;"age": 20,<br>
+                        &nbsp;&nbsp;"location": "Cairo, Egypt (Open to Remote)",<br>
+                        &nbsp;&nbsp;"education": "Materials Science & Nanoscience @ Ain Shams University (GPA: 3.4)",<br>
+                        &nbsp;&nbsp;"roles": ["Junior Penetration Tester", "NYAS Team Leader", "CTF Player"],<br>
+                        &nbsp;&nbsp;"specialty": ["Web Exploitation", "Reverse Engineering", "Red Teaming"],<br>
+                        &nbsp;&nbsp;"milestone": "USAID Egyptian Pioneers Scholar",<br>
+                        &nbsp;&nbsp;"email": "<a href='mailto:moabdelmaksouddd@gmail.com' style='color: var(--neon-blue); text-decoration: none;'>moabdelmaksouddd@gmail.com</a>"<br>
+                        }
+                    </div>
+                    <div class="term-line">
+                        <span class="prompt">r<span class="at">3</span>venMoe@kali:~$</span> <span class="cmd">./fetch_philosophy.sh</span>
+                    </div>
+                    <div class="term-output success-text">
+                        [SUCCESS] Blending scientific rigor with hacker ingenuity.
+                    </div>
+                    <div class="term-line">
+                        <span class="prompt">r<span class="at">3</span>venMoe@kali:~$</span> <span class="cursor-blink">_</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Languages -->
+            <h3 class="subsection-heading mt-50">> spoken_languages</h3>
+            <div class="languages-pill-container">
+                <span class="lang-pill"><i class="fa-solid fa-globe"></i> Arabic (Native, Egyptian)</span>
+                <span class="lang-pill"><i class="fa-solid fa-globe"></i> English (Fluent)</span>
+                <span class="lang-pill"><i class="fa-solid fa-globe"></i> Spanish (Conversational)</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Timeline Section -->
+    <section class="section" id="experience">
+        <h2 class="section-heading"><span class="heading-num">02.</span> Operational History</h2>
+        
+        <h3 class="timeline-category">Leadership & Elite Scholarships</h3>
+        <div class="timeline">
+            <!-- USAID -->
+            <div class="timeline-item usaid-card glass-panel">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">Sep 2024 - Feb 2025</div>
+                <h3 class="timeline-title">USAID Egyptian Pioneers Scholar</h3>
+                <div class="timeline-org">USAID & The American University in Cairo (AUC)</div>
+                <p>Selected as one of only 372 students nationwide to receive the prestigious fully funded USAID Egyptian Pioneers Scholarship at The American University in Cairo (AUC). Elected by peers as the Faculty Ambassador, serving as the primary liaison between students and program management.</p>
+                <div class="usaid-badge">Top Tier Selection</div>
+            </div>
+            <!-- NYAS -->
+            <div class="timeline-item glass-panel">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">Sep 2023 - 2025</div>
+                <h3 class="timeline-title">Team Leader</h3>
+                <div class="timeline-org">The New York Academy of Sciences (Remote)</div>
+                <p>Led and mentored a diverse global team in science and technology challenges addressing sustainability and healthcare. Guided projects from concept to solution.</p>
+            </div>
+        </div>
+
+        <h3 class="timeline-category mt-50">Technical Experience</h3>
+        <div class="timeline">
+            <!-- HTB CTF -->
+            <div class="timeline-item glass-panel">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">Active Status</div>
+                <h3 class="timeline-title">CTF Competitor & Security Researcher</h3>
+                <div class="timeline-org">Hack The Box & CTF Tournaments</div>
+                <p>Solved complex challenges in web exploitation, reverse engineering, and privilege escalation. Led my team to secure <strong>1st Place</strong> in competitive CTF tournaments. Automated reconnaissance using custom Python/Bash scripts and mastered tools like Burp Suite, Metasploit, Nmap.</p>
+            </div>
+            <!-- Game Dev -->
+            <div class="timeline-item glass-panel">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">Feb 2022 - Dec 2022</div>
+                <h3 class="timeline-title">Game Developer</h3>
+                <div class="timeline-org">Independent</div>
+                <p>Designed and published two Android games using Unity including a physics-based Car Racing Game and an animated multiplayer Snakes & Ladders.</p>
+            </div>
+        </div>
+
+        <h3 class="timeline-category mt-50">Volunteering</h3>
+        <div class="timeline">
+            <!-- Resala -->
+            <div class="timeline-item glass-panel">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">May 2022 - Nov 2022</div>
+                <h3 class="timeline-title">Volunteer & Educator</h3>
+                <div class="timeline-org">Resala Charity Organization (Cairo)</div>
+                <p>Supported literacy programs helping people improve reading/writing. Assisted in distributing food and essentials to underprivileged communities.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Arsenal / Skills Section -->
+    <section class="section" id="arsenal">
+        <h2 class="section-heading"><span class="heading-num">03.</span> Digital Arsenal</h2>
+        <div class="skills-grid">
+            <div class="skill-card glass-panel">
+                <div class="skill-icon"><i class="fa-solid fa-spider"></i></div>
+                <h3>Cybersecurity</h3>
+                <p>Burp Suite, Metasploit, Nmap, Wireshark, Privilege Escalation, Web Pentesting.</p>
+            </div>
+            <div class="skill-card glass-panel">
+                <div class="skill-icon"><i class="fa-solid fa-code"></i></div>
+                <h3>Programming</h3>
+                <p>Python (Security Automation), Bash Scripting, HTML/CSS, C# (Unity).</p>
+            </div>
+            <div class="skill-card glass-panel">
+                <div class="skill-icon"><i class="fa-solid fa-flask"></i></div>
+                <h3>Science</h3>
+                <p>Materials Science, Nanoscience Research, Analytical Thinking.</p>
+            </div>
+            <div class="skill-card glass-panel">
+                <div class="skill-icon"><i class="fa-solid fa-users"></i></div>
+                <h3>Soft Skills</h3>
+                <p>Team Leadership, Problem-Solving, Communication, Mentorship.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTF Battleground Section -->
+    <section class="section" id="ctf">
+        <h2 class="section-heading"><span class="heading-num">04.</span> Battleground & Profiles</h2>
+        
+        <div class="platforms-grid">
+            <!-- CHAMPIONSHIP TIER CARD -->
+            <div class="champion-card glass-panel">
+                <div class="champ-glow"></div>
+                <div class="champ-content">
+                    <i class="fa-solid fa-trophy champ-icon"></i>
+                    <div class="champ-text">
+                        <div class="champ-org">ZINAD IT | Nationwide (Egypt)</div>
+                        <h3 class="champ-title">Global Cyber Champion 2027</h3>
+                        <div class="prize-tag">
+                            <i class="fa-solid fa-sack-dollar"></i> $2,000 Grand Prize
+                        </div>
+                        <p class="champ-desc">Secured <strong class="text-neon-gold">1st Place</strong> at the "Global Cyber Champion 2027" nationwide CTF hosted by ZINAD IT. Awarded the top grand prize out of hundreds of competitors, validating elite capabilities in offensive operations, reverse engineering, and high-stakes exploitation under pressure.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HackTheBox Card -->
+            <div class="platform-card htb-card glass-panel">
+                <div class="card-glow htb-glow"></div>
+                <div class="platform-header">
+                    <i class="fa-solid fa-box htb-icon"></i>
+                    <h3>HackTheBox</h3>
+                </div>
+                <div class="platform-stats">
+                    <div class="stat">
+                        <span class="stat-label">User ID</span>
+                        <span class="stat-value neon-white">#1034734</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Ranking</span>
+                        <span class="stat-value neon-green">Elite Hacker</span>
+                    </div>
+                </div>
+                <a href="https://app.hackthebox.com/users/1034734" target="_blank" class="platform-link">Verify Profile &rarr;</a>
+            </div>
+
+            <!-- GitHub Card -->
+            <div class="platform-card thm-card glass-panel">
+                <div class="card-glow" style="background: linear-gradient(45deg, #111, #fff, #111);"></div>
+                <div class="platform-header">
+                    <i class="fa-brands fa-github thm-icon"></i>
+                    <h3>GitHub</h3>
+                </div>
+                <div class="platform-stats">
+                    <div class="stat">
+                        <span class="stat-label">Handle</span>
+                        <span class="stat-value neon-white">MoeAmara</span>
+                    </div>
+                </div>
+                <a href="https://github.com/MoeAmara" target="_blank" class="platform-link">View Repositories &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="section" id="certifications">
+        <h2 class="section-heading"><span class="heading-num">05.</span> Cyber Credentials</h2>
+        <div class="certs-grid">
+            <!-- Cert 1 -->
+            <div class="cert-card glass-panel">
+                <div class="cert-glare"></div>
+                <div class="cert-icon">
+                    <img src="assets/cpts.png" alt="CPTS" class="badge-img" onerror="this.onerror=null; this.outerHTML='<i class=\'fa-solid fa-box-open\'></i>';">
+                </div>
+                <div class="cert-info">
+                    <h3 class="cert-title">HTB CPTS</h3>
+                    <div class="cert-issuer">Hack The Box</div>
+                    <div class="cert-date">Status: Active</div>
+                </div>
+                <div class="cert-verify"><a href="#">Verify Badge <i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
+            </div>
+            <!-- Cert 2 -->
+            <div class="cert-card glass-panel">
+                <div class="cert-glare"></div>
+                <div class="cert-icon">
+                    <img src="assets/crto.png" alt="CRTO" class="badge-img" onerror="this.onerror=null; this.outerHTML='<i class=\'fa-solid fa-crosshairs\'></i>';">
+                </div>
+                <div class="cert-info">
+                    <h3 class="cert-title">CRTO Certification</h3>
+                    <div class="cert-issuer">Zero-Point Security</div>
+                    <div class="cert-date">Status: Active</div>
+                </div>
+                <div class="cert-verify"><a href="#">Verify Badge <i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
+            </div>
+            <!-- Cert 3 -->
+            <div class="cert-card glass-panel">
+                <div class="cert-glare"></div>
+                <div class="cert-icon">
+                    <img src="assets/alx.png" alt="ALX" class="badge-img" onerror="this.onerror=null; this.outerHTML='<i class=\'fa-solid fa-laptop-code\'></i>';">
+                </div>
+                <div class="cert-info">
+                    <h3 class="cert-title">ALX Cybersecurity</h3>
+                    <div class="cert-issuer">ALX Africa</div>
+                    <div class="cert-date">Status: Active</div>
+                </div>
+                <div class="cert-verify"><a href="#">Verify Badge <i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section (Labs) -->
+    <section class="section" id="projects">
+        <h2 class="section-heading"><span class="heading-num">06.</span> Cyber & Dev Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card glass-panel">
+                <div class="project-content">
+                    <div class="project-type">Security Tooling (Python)</div>
+                    <h3 class="project-title">Custom C2 Server <span class="badge">Demo</span></h3>
+                    <p class="project-desc">A lightweight Command and Control (C2) server built with Python sockets to simulate botnet behavior in a controlled lab environment.</p>
+                    <div class="project-tech">
+                        <span>Python</span><span>Networking</span><span>Sockets</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card glass-panel">
+                <div class="project-content">
+                    <div class="project-type">Game Development</div>
+                    <h3 class="project-title">Unity Physics Racer</h3>
+                    <p class="project-desc">Developed a full 3D racing game for Android featuring realistic vehicular physics and custom tracks algorithms.</p>
+                    <div class="project-tech">
+                        <span>Unity</span><span>C#</span><span>Android</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card glass-panel">
+                <div class="project-content">
+                    <div class="project-type">Vulnerability Automation</div>
+                    <h3 class="project-title">Automated Pentest Scripts</h3>
+                    <p class="project-desc">A suite of custom bash scripts created to automate DNS enumeration, parse Nmap scans, and accelerate CTF payloads.</p>
+                    <div class="project-tech">
+                        <span>Bash</span><span>Linux</span><span>Automation</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/MoeAmara" target="_blank"><i class="fa-brands fa-github"></i> View on GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contact -->
+    <footer id="contact">
+        <div class="footer-content glass-panel">
+            <h2 class="glitch-small" data-text="Initiate Handshake">Initiate Handshake</h2>
+            <p>Whether you want to discuss nanoscience, collaborate on a project, or tackle a HackTheBox machine together, connect with me below.</p>
+            
+            <div class="social-links">
+                <a href="mailto:moabdelmaksouddd@gmail.com" aria-label="Email" title="moabdelmaksouddd@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+                <a href="https://github.com/MoeAmara" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/mohamedabdelmaksoudamara/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://app.hackthebox.com/users/1034734" target="_blank" aria-label="HackTheBox"><i class="fa-solid fa-box"></i></a>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2027 Mohamed Amara</p>
+        </div>
+    </footer>
+
+    <script src="script_hacker.js"></script>
+</body>
+</html>
