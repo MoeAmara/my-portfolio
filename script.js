@@ -17,30 +17,59 @@ function typeWriter() {
     const currentPhrase = phrases[currentPhraseIndex];
     
     if (isDeleting) {
+        // Deleting text
         typewriterElement.textContent = currentPhrase.substring(0, currentCharIndex - 1);
         currentCharIndex--;
-        typeSpeed = 50; 
+        typeSpeed = 50; // Faster deleting
     } else {
+        // Typing text
         typewriterElement.textContent = currentPhrase.substring(0, currentCharIndex + 1);
         currentCharIndex++;
-        typeSpeed = 100; 
+        typeSpeed = 100; // Normal typing speed
     }
     
+    // Pause at the end of typing
     if (!isDeleting && currentCharIndex === currentPhrase.length) {
         isDeleting = true;
-        typeSpeed = 2000; 
+        typeSpeed = 2000; // Pause for 2s
     } else if (isDeleting && currentCharIndex === 0) {
         isDeleting = false;
         currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
-        typeSpeed = 500; 
+        typeSpeed = 500; // Pause before typing new word
     }
     
     setTimeout(typeWriter, typeSpeed);
 }
 
+// Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(typeWriter, 1500); 
+    // Start typing effect
+    setTimeout(typeWriter, 1500); // Wait for the "Connection established" impact
     
+    // Mobile Menu Toggle
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (mobileMenu) {
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenu.querySelector('i').classList.toggle('fa-bars');
+            mobileMenu.querySelector('i').classList.toggle('fa-xmark');
+        });
+    }
+
+    // Close mobile menu on link click
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            if (mobileMenu) {
+                mobileMenu.querySelector('i').classList.add('fa-bars');
+                mobileMenu.querySelector('i').classList.remove('fa-xmark');
+            }
+        });
+    });
+
+    // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -56,6 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Observer for fade-in animations on scroll
     const observerOptions = {
         threshold: 0.1,
         rootMargin: "0px 0px -50px 0px"
@@ -71,6 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
 
+    // Apply observer to sections
     document.querySelectorAll('.section').forEach(section => {
         section.style.opacity = '0';
         section.style.transform = 'translateY(20px)';
@@ -80,145 +111,128 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ==========================================
-// ELITE CYBER CIRCUIT BOARD (INTERACTIVE & READABLE)
+// PREMIUM GRAPHENE / HEXAGON INTERACTIVE BACKGROUND
+// (Combines Nanoscience + Cybersecurity Themes)
 // ==========================================
 const canvas = document.getElementById('network-canvas');
 const ctx = canvas.getContext('2d');
 
-// We add margin so parallax doesn't show sharp edges
-const overflowMargin = 100;
 let width, height;
-let traces = [];
-const gridSize = 25; 
-let mouse = { x: -1000, y: -1000 };
-
-// Apply a default opacity style to dim the canvas for text readability
-canvas.style.opacity = '0.35';
-canvas.style.left = '0px';
-canvas.style.top = '0px';
-canvas.style.transform = 'none';
+let mouse = { x: -1000, y: -1000, radius: 250 };
 
 window.addEventListener('mousemove', (e) => {
     mouse.x = e.x;
     mouse.y = e.y;
 });
-
+window.addEventListener('touchstart', (e) => {
+    if (e.touches.length > 0) {
+        mouse.x = e.touches[0].clientX;
+        mouse.y = e.touches[0].clientY;
+    }
+});
+window.addEventListener('touchmove', (e) => {
+    if (e.touches.length > 0) {
+        mouse.x = e.touches[0].clientX;
+        mouse.y = e.touches[0].clientY;
+    }
+});
 window.addEventListener('mouseout', () => {
     mouse.x = -1000;
     mouse.y = -1000;
 });
+
+// Hexagon layout math
+let hexRadius = 40;
+let dx = hexRadius * Math.sqrt(3);
+let dy = hexRadius * 1.5;
+let columns, rows;
 
 function initCanvas() {
     width = window.innerWidth;
     height = window.innerHeight;
     canvas.width = width;
     canvas.height = height;
-    traces = [];
-    spawnTraces((width * height) / 10000); // Higher density 
-}
-
-function spawnTraces(num) {
-    for(let i=0; i<num; i++) {
-        traces.push({
-            x: Math.floor((Math.random() * width) / gridSize) * gridSize,
-            y: Math.floor((Math.random() * height) / gridSize) * gridSize,
-            length: 0,
-            maxLength: Math.random() * 40 + 20,
-            dirX: Math.random() > 0.5 ? 1 : -1,
-            dirY: Math.random() > 0.5 ? 0 : (Math.random() > 0.5 ? 1 : -1),
-            active: true,
-            color: Math.random() > 0.75 ? '#00e5ff' : '#00ff41',
-            speedMultiplier: (Math.random() * 0.3) + 0.2
-        });
-    }
+    columns = Math.ceil(width / dx) + 2;
+    rows = Math.ceil(height / dy) + 2;
 }
 
 initCanvas();
 window.addEventListener('resize', initCanvas);
 
-let lastTime = 0;
-const fps = 40;
-const interval = 1000 / fps;
-
-function drawCircuit(timestamp) {
-    requestAnimationFrame(drawCircuit);
-    
-    const deltaTime = timestamp - lastTime;
-    if (deltaTime < interval) return;
-    lastTime = timestamp - (deltaTime % interval);
-
-    // Fade to create trails (True AMOLED Black fade)
-    ctx.fillStyle = 'rgba(0, 0, 0, 0.08)';
-    ctx.fillRect(0, 0, width, height);
-
-    for (let i = 0; i < traces.length; i++) {
-        let t = traces[i];
-        if (!t.active) continue;
-
-        let oldX = t.x;
-        let oldY = t.y;
-
-        t.x += t.dirX * (gridSize * t.speedMultiplier);
-        t.y += t.dirY * (gridSize * t.speedMultiplier);
-        t.length++;
-
-        ctx.beginPath();
-        ctx.moveTo(oldX, oldY);
-        ctx.lineTo(t.x, t.y);
-        ctx.strokeStyle = t.color;
-        ctx.lineWidth = 1.5;
-        // Turn off heavy blur to keep it sharp and not glaring
-        ctx.shadowBlur = 0;
-        ctx.stroke();
-
-        // Traces become hyper-active and likely to turn if near mouse
-        let distToTarget = Math.hypot(t.x - mouse.x, t.y - mouse.y);
-        let turnProbability = distToTarget < 300 ? 0.3 : 0.85; // 70% chance to turn if close, 15% if far
-
-        if (Math.random() > turnProbability) {
-            let possibleDirs = [
-                {x: 1, y: 0}, {x: -1, y: 0}, 
-                {x: 0, y: 1}, {x: 0, y: -1},
-                {x: 1, y: 1}, {x: -1, y: -1},
-                {x: 1, y: -1}, {x: -1, y: 1}
-            ];
-            possibleDirs = possibleDirs.filter(d => !(d.x === -t.dirX && d.y === -t.dirY));
-            
-            let newDir;
-            
-            // AGGRESSIVE ROUTING: Traces heavily target the mouse
-            if (mouse.x > 0 && mouse.y > 0) {
-                possibleDirs.sort((a, b) => {
-                    let d1 = Math.hypot((t.x + a.x*gridSize) - mouse.x, (t.y + a.y*gridSize) - mouse.y);
-                    let d2 = Math.hypot((t.x + b.x*gridSize) - mouse.x, (t.y + b.y*gridSize) - mouse.y);
-                    return d1 - d2;
-                });
-                
-                // 95% of the time, pick the absolute best path towards the mouse
-                newDir = possibleDirs[Math.random() > 0.95 ? 1 : 0];
-            } else {
-                newDir = possibleDirs[Math.floor(Math.random() * possibleDirs.length)];
-            }
-            
-            t.dirX = newDir.x;
-            t.dirY = newDir.y;
-            
-            ctx.beginPath();
-            ctx.arc(t.x, t.y, 2.5, 0, Math.PI*2);
-            ctx.fillStyle = t.color;
-            ctx.fill();
-        }
-
-        if (t.length > t.maxLength || t.x < 0 || t.x > width || t.y < 0 || t.y > height) {
-            t.active = false;
+// Draw a single flat-topped hexagon
+function drawHexagon(x, y, r, strokeStyle, fillStyle) {
+    ctx.beginPath();
+    for (let i = 0; i < 6; i++) {
+        // Flat top hexagon math (-30 degrees offset)
+        let angle = (60 * i - 30) * Math.PI / 180;
+        let pX = x + r * Math.cos(angle);
+        let pY = y + r * Math.sin(angle);
+        if (i === 0) {
+            ctx.moveTo(pX, pY);
+        } else {
+            ctx.lineTo(pX, pY);
         }
     }
-
-    traces = traces.filter(t => t.active);
-    let targetTraces = (width * height) / 10000;
-    if (traces.length < targetTraces && Math.random() > 0.3) {
-        spawnTraces(2);
+    ctx.closePath();
+    
+    if (fillStyle) {
+        ctx.fillStyle = fillStyle;
+        ctx.fill();
+    }
+    if (strokeStyle) {
+        ctx.strokeStyle = strokeStyle;
+        ctx.stroke();
     }
 }
 
-requestAnimationFrame(drawCircuit);
+let tick = 0;
+
+function animateHexagons() {
+    requestAnimationFrame(animateHexagons);
+    ctx.clearRect(0, 0, width, height);
+    tick += 0.02;
+
+    for (let row = 0; row < rows; row++) {
+        for (let col = 0; col < columns; col++) {
+            
+            // Calculate center point of the current hexagon
+            let x = col * dx + (row % 2 === 1 ? dx / 2 : 0);
+            let y = row * dy;
+            
+            // Mouse Interaction Logic
+            let dist = Math.hypot(mouse.x - x, mouse.y - y);
+            
+            // Default almost invisible state
+            let lineAlpha = 0.02; 
+            let fillAlpha = 0;
+            
+            // 1) Flashlight effect from mouse
+            if (dist < mouse.radius) {
+                let intensity = 1 - (dist / mouse.radius);
+                // Ease out the interpolation for a smoother glow curve
+                let easeIntensity = intensity * intensity;
+                lineAlpha = 0.02 + (easeIntensity * 0.4);
+                fillAlpha = easeIntensity * 0.08;
+            }
+            
+            // 2) Ambient Data Flow effect (Soft sine wave pulses traveling across grid)
+            let noise = Math.sin(tick + col * 0.5 + row * 0.3) + Math.cos(tick*0.8 + row*0.1);
+            if (noise > 1.8) {
+                let pulseAlpha = (noise - 1.8) * 0.5;
+                fillAlpha = Math.max(fillAlpha, pulseAlpha * 0.2);
+                lineAlpha = Math.max(lineAlpha, pulseAlpha);
+            }
+
+            // Render
+            ctx.lineWidth = 1;
+            drawHexagon(
+                x, y, 
+                hexRadius - 1, // Subtract 1 for subtle gap between hexes
+                `rgba(0, 240, 255, ${lineAlpha})`, 
+                fillAlpha > 0 ? `rgba(0, 240, 255, ${fillAlpha})` : null
+            );
+        }
+    }
+}
+
+animateHexagons();

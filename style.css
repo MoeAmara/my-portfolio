@@ -178,6 +178,12 @@ h1, h2, h3 { font-family: var(--font-title); letter-spacing: 1px; }
 ::selection { background: var(--neon-blue); color: #000; text-shadow: none; }
 ::-moz-selection { background: var(--neon-blue); color: #000; text-shadow: none; }
 
+/* USAID GLOW */
+.usaid-card { border: 2px solid var(--neon-gold) !important; box-shadow: 0 0 25px rgba(212, 175, 55, 0.3) !important; overflow: hidden; }
+.usaid-card > *:not(.champ-glow) { position: relative; z-index: 1; }
+.timeline-title.usaid-glow-text { color: var(--neon-gold); text-shadow: 0 0 15px rgba(212, 175, 55, 0.8); }
+.timeline-dot.usaid-glow-dot { background: var(--neon-gold); box-shadow: 0 0 15px var(--neon-gold); border-color: var(--neon-gold); }
+
 /* Platform Cards */
 .platform-card { padding: 40px; position: relative; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); background: var(--glass-bg); }
 .card-glow { display: none; } /* Disabled to prevent text washout */
@@ -247,15 +253,36 @@ footer { padding: 80px 10% 30px; text-align: center; }
 .copyright { font-family: var(--font-mono); font-size: 0.8rem; color: #555; }
 
 /* =========================================
-   RESPONSIVE DESIGN
+   RESPONSIVE DESIGN & MOBILE
 ========================================= */
+.menu-toggle { display: none; font-size: 1.8rem; color: var(--neon-blue); cursor: pointer; }
+
 @media (max-width: 768px) {
-    .hero-title { font-size: 2.5rem; }
-    .typewriter-container { font-size: 1rem; }
-    .navbar { padding: 20px; }
-    .nav-links { display: none; }
-    .section { padding: 60px 5%; }
-    .timeline-item { padding: 20px; }
-    .champ-icon { font-size: 4rem; }
-    .champ-title { font-size: 1.5rem; }
+    .menu-toggle { display: block; }
+    .navbar { padding: 15px 20px; }
+    .nav-links {
+        position: absolute; top: 100%; left: 0; background: rgba(5, 8, 16, 0.98);
+        flex-direction: column; width: 100%; text-align: center;
+        padding: 20px 0; border-bottom: 2px solid var(--neon-blue);
+        transform: translateY(-150%); opacity: 0; transition: transform 0.4s ease, opacity 0.4s ease;
+        z-index: -1; pointer-events: none;
+    }
+    .nav-links.active {
+        transform: translateY(0); opacity: 1; pointer-events: all;
+    }
+    .nav-links li { margin: 15px 0; }
+    
+    .hero-title { font-size: 2rem; }
+    .typewriter-container { font-size: 0.95rem; }
+    .section { padding: 50px 5%; }
+    .timeline-item { padding: 15px; margin-left: 20px; }
+    .hero-actions { flex-direction: column; }
+    .cyber-btn { width: 100%; justify-content: center; margin-bottom: 10px; }
+    
+    .champ-content { flex-direction: column; text-align: center; padding: 20px; }
+    .champ-icon { margin-right: 0; margin-bottom: 20px; font-size: 3rem; }
+    .prize-tag { font-size: 1rem; padding: 10px 15px; }
+    .platforms-grid { grid-template-columns: 1fr; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .certs-grid { grid-template-columns: 1fr; }
 }
